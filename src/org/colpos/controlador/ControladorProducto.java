@@ -25,7 +25,7 @@ public class ControladorProducto extends HttpServlet {
      * @return 
      * @see HttpServlet#HttpServlet()
      */
-    public void Controlador() {
+    public ControladorProducto() {
         super();
         // TODO Auto-generated constructor stub
     }

@@ -39,11 +39,11 @@ public class ProductoDAO {
 	}catch(Exception e)
 	{
 
-	}return lista;{
+	}return lista;
 	
 }
 
-	public int agregar (Producto p) {
+	public int agregar(Producto p) {
 		int r = 0;
 		String sql = "insert into persona (id, nombreProducto, precioUnitario, precioMayoreo, nombreCliente,telefono) values (?,?,?,?,?,?)";
 		try {
@@ -68,26 +68,28 @@ public class ProductoDAO {
 
 	public Producto listarId(String id) {
 		String sql = "select * from producto" + id;
-		Producto p = new Producto(0, sql, sql, sql, sql, sql);
+		Producto produc = new Producto(0, sql, sql, sql, sql, sql);
 		try {
 			Conexion.connectDB();
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				p.setId(rs.getInt(1));
-				p.setNombreProducto(rs.getString(2));
-				p.setPrecioUnitario(rs.getString(3));
-				p.setPrecioMayoreo(rs.getString(4));
-				p.setNombreCliente(rs.getString(5));
-				p.setTelefono(rs.getString(6));
+				produc.setId(rs.getInt(1));
+				produc.setNombreProducto(rs.getString(2));
+				produc.setPrecioUnitario(rs.getString(3));
+				produc.setPrecioMayoreo(rs.getString(4));
+				produc.setNombreCliente(rs.getString(5));
+				produc.setTelefono(rs.getString(6));
 			}
 
 		} catch (Exception e) {
+			System.out.println("Exception in Producto Class: "+e.getMessage());
 		}
-		return p;
+		/*Necesitas crear una lista por ejemplo ArrayList<Producto> listaProducto = new ArrayList<Producto>();
+		 * La lista puede ser una opción tentativa para almacenar una lista de objetos*/
+		return produc;
 	}
 
-}
 
 	public int Actualizar(Producto p) {
 		int r = 0;
@@ -110,10 +112,5 @@ public class ProductoDAO {
 		} catch (Exception e) {
 		}
 		return r;
-	}
-
-	public void agregar(Producto p) {
-		// TODO Auto-generated method stub
-		
 	}
 }

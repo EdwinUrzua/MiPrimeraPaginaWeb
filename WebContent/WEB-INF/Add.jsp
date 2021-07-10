@@ -27,7 +27,7 @@
 			<input type="text" name="txttelefono"><br>
 			<input type="submit" name="accion" value="Guardar">
 			</form>
-			<h1>Prueba git</h1>
+			prueba
 		</div>
 	</center>
 </body>
