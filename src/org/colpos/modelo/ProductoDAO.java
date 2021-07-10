@@ -16,13 +16,10 @@ public class ProductoDAO {
 
 	@SuppressWarnings("rawtypes")
 	public List listar() {
-		return null;
-	
-
-	List<Producto> lista=new ArrayList<>();
+	List<Producto> lista=new ArrayList<Producto>();
 	try	{
 		Conexion.connectDB();
-		String s;
+		String s="";
 		ps = con.prepareStatement(s);
 		rs = ps.executeQuery();
 		while (rs.next()) {
